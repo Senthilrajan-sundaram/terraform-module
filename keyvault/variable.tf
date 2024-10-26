@@ -15,5 +15,21 @@ variable "settings" {
     enable_rbac_authorization       = optional(bool)
     public_network_access_enabled   = optional(bool)
     secret_expiration_date          = optional(string)
+
+    key_vault_key = optional(list(object({
+      name     = string
+      key_type = optional(string, "RSA-HSM")
+      key_size = optional(number, 2048)
+      key_opts = optional(list(string), [
+        "decrypt",
+        "encrypt",
+        "sign",
+        "unwrapKey",
+        "verify",
+        "wrapKey"
+      ])
+  })))
+
   })
+
 }
