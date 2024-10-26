@@ -2,6 +2,7 @@ resource "azurerm_lb" "this" {
   name                = var.settings.name
   resource_group_name = var.settings.resource_group_name
   location            = var.settings.location
+  
 
   dynamic "frontend_ip_configuration" {
     for_each = var.settings.frontend_ip_configuration != null ? [var.settings.frontend_ip_configuration] : []
