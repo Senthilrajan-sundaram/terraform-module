@@ -1,7 +1,7 @@
 variable "settings" {
   description = "Key vault configuration."
   type = object({
-    azurerm_key_vault_name          = string
+    name          = string
     location                        = string
     resource_group_name             = string
     sku_name                        = optional(string, "premium")
