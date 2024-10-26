@@ -28,6 +28,7 @@ variable "settings" {
         "verify",
         "wrapKey"
       ])
+      expiration_date = optional(string)
   })))
 
   })
