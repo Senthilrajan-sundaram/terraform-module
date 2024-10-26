@@ -5,7 +5,7 @@ variable "settings" {
     location                   = string
     resource_group_name        = string
     admin_username             = string
-    admin_password             = string
+    # admin_password             = string
     size                       = string
     network_interface_ids      = list(string)
     availability_set_id        = optional(string)

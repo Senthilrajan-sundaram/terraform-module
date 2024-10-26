@@ -1,11 +1,15 @@
-
+resource "random_password" "this" {
+  length           = 16
+  special          = true
+  override_special = "!#$%&*()-_=+[]{}<>:?"
+}
 resource "azurerm_windows_virtual_machine" "this" {
   name                       = var.settings.name
   resource_group_name        = var.settings.resource_group_name
   location                   = var.settings.location
   size                       = var.settings.size
   admin_username             = var.settings.admin_username
-  admin_password             = var.settings.admin_password
+  admin_password             = random_password.this.result
   availability_set_id        = var.settings.availability_set_id
   network_interface_ids      = var.settings.network_interface_ids
   enable_automatic_updates   = var.settings.enable_automatic_updates
